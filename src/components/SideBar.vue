@@ -62,7 +62,7 @@ export default {
 }
 
 .logo{
-    padding-left: 40px;
+    padding-left: 30px;
 
 }
 </style>

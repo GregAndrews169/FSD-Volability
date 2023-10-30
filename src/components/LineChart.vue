@@ -1,6 +1,6 @@
 <template>
     <div class="volatility_title">
-        <h2>Cryptocurrency Volatility</h2>
+        
         <canvas ref="lineChartCanvas" width="970" height="400"></canvas>
     </div>
 </template>
@@ -80,7 +80,5 @@ export default {
 </script>
 
 <style scoped>
-.volatility_title h2 {
-    color: #ddd9d9;
-}
+
 </style>

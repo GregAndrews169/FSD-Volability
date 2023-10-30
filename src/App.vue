@@ -16,9 +16,8 @@ import Sidebar from './components/SideBar.vue';
 .dashboard {
   display: flex;
   height: 100vh;
+  width: 110%;
   
-  
-  background: #000000;
 }
 
 .main-content {
@@ -43,4 +42,6 @@ import Sidebar from './components/SideBar.vue';
   border-bottom: 1px solid #e1e1e1;
   width: 100%;
 }
+
+
 </style>

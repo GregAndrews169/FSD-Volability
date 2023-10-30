@@ -1,19 +1,19 @@
 
 <template>
-    <div>
-        <header class="header"></header>
+    <div class = "main">
+       
 
        
 
-        <div class="chart-container">
-            <LineChart :data="formattedChartData" />
-        </div>
+       
 
 
         <div class="date-and-measure-container">
             <div class="date-panel">
+                <h3 class = "h3">Date Selector</h3>
+                <p class = "p">Please select your date below:</p>
                 <form class="date-form">
-                    <label>Date Range:</label>
+                    
                     <div class="date-button-panel">
                         <button @click.prevent="updateDateRange('week')" :class="{ active: setDateRange === 'week' }">
                             Week
@@ -51,8 +51,10 @@
             </div>
 
             <div class="measure-panel">
+                <h3 class = "h3">Metric Selector</h3>
+                <p class = "p" >Please select your metric below:</p>
                 <form class="measure-form">
-                    <label>Metric:</label>
+                   
                     <div class="measure-button-panel">
                         <button @click.prevent="updateMetric('volatility')" :class="{ active: setMetric === 'volatility' }">
                             Volatility
@@ -73,6 +75,10 @@
                 </form>
 
             </div>
+        </div>
+
+        <div class="chart-container">
+            <LineChart :data="formattedChartData" />
         </div>
 
     </div>
@@ -206,6 +212,7 @@ const formattedChartData = computed(() => lineChartData.value);
     width: 100%;
     flex-wrap: wrap;
     padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .date-panel,
@@ -222,9 +229,10 @@ const formattedChartData = computed(() => lineChartData.value);
 }
 
 .chart-container {
-    background: linear-gradient(135deg, #2b3160 0%, #181616 100%);
+    background: linear-gradient(135deg, #2f1543 0%, #0f0e0e 100%);
     padding: 10px;
     width: 100%;
+    border-radius: 10px;
 }
 
 .date-button-panel button.active,
@@ -232,5 +240,22 @@ const formattedChartData = computed(() => lineChartData.value);
     background-color: #9746D6;
     color: white;
 }
+
+.h3{
+    color: hsl(274, 92%, 75%);
+    padding-bottom: 0px;
+    
+}
+
+.date-panel{
+    background-color: #0f0f0f;
+    border-radius: 10px;
+}
+
+.measure-panel{
+    background-color: #0f0f0f;
+    border-radius: 10px;
+}
+
 </style>
   
