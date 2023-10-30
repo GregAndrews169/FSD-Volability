@@ -3,6 +3,13 @@
     <div>
         <header class="header"></header>
 
+       
+
+        <div class="chart-container">
+            <LineChart :data="formattedChartData" />
+        </div>
+
+
         <div class="date-and-measure-container">
             <div class="date-panel">
                 <form class="date-form">
@@ -51,12 +58,8 @@
                             Volatility
                         </button>
 
-                        <button @click.prevent="updateMetric('open')" :class="{ active: setMetric === 'open' }">
-                            Open
-                        </button>
-
                         <button @click.prevent="updateMetric('close')" :class="{ active: setMetric === 'close' }">
-                            Close
+                            Price
                         </button>
 
                         <button @click.prevent="updateMetric('volume')" :class="{ active: setMetric === 'volume' }">
@@ -72,10 +75,6 @@
             </div>
         </div>
 
-
-        <div class="chart-container">
-            <LineChart :data="formattedChartData" />
-        </div>
     </div>
 </template>
   
@@ -160,7 +159,7 @@ const fetchData = async () => {
     };
 
     try {
-        const response = await axios.post('http://localhost:5000/api/crypto', {
+        const response = await axios.post('http://127.0.0.1:5000/api/crypto', {
             start_date: startDate.value,
             end_date: endDate.value,
         });
@@ -206,6 +205,7 @@ const formattedChartData = computed(() => lineChartData.value);
     justify-content: space-between;
     width: 100%;
     flex-wrap: wrap;
+    padding-top: 20px;
 }
 
 .date-panel,
@@ -229,7 +229,7 @@ const formattedChartData = computed(() => lineChartData.value);
 
 .date-button-panel button.active,
 .measure-button-panel button.active {
-    background-color: #4caf50;
+    background-color: #9746D6;
     color: white;
 }
 </style>

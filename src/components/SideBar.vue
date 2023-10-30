@@ -1,8 +1,9 @@
 <template>
     <aside class="sidebar">
-        <h3>DASHBOARD</h3>
+        <div>
+            <img class= "logo" src="../assets/LogoVol.png" alt="Your Logo" />
+        </div>
         <ul>
-            <li>CHART TYPE</li>
             <li class="link" :class="{ active: $route.path === '/' }">
                 <router-link to="/">Time Series Analysis</router-link>
             </li>
@@ -28,9 +29,9 @@ export default {
 <style scoped>
 /* Styles specific to the Sidebar component */
 .sidebar {
-    background-color: #4d824de4;
+    background-color: #000000;
     color: #b5b5c3;
-    width: 240px;
+    width: 200px;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
@@ -58,5 +59,10 @@ export default {
 /* Styling for the active link */
 .sidebar .active a {
     color: #fff !important;
+}
+
+.logo{
+    padding-left: 40px;
+
 }
 </style>

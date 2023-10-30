@@ -16,14 +16,16 @@ import Sidebar from './components/SideBar.vue';
 .dashboard {
   display: flex;
   height: 100vh;
-  background: #181616;
+  
+  
+  background: #000000;
 }
 
 .main-content {
   flex: 1;
-  padding: 20px;
+  padding: 60px;
   overflow-y: auto;
-  background: #181616;
+  background: #000000;
   color: #ddd9d9;
   /* max-width: 1200px; Comment this out if you don't need a limit. */
   width: 100%;
