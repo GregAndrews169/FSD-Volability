@@ -3,13 +3,20 @@
         <h3>DASHBOARD</h3>
         <ul>
             <li>CHART TYPE</li>
-            <li class="active">Time Series Analysis</li>
-            <li class="active">Static Analysis</li>
-            <li class="active">Correlation</li>
+            <li class="link" :class="{ active: $route.path === '/' }">
+                <router-link to="/">Time Series Analysis</router-link>
+            </li>
+            <li class="link" :class="{ active: $route.path === '/StaticAnalysis' }">
+                <router-link to="/StaticAnalysis">Static Analysis</router-link>
+            </li>
+            <li class="link" :class="{ active: $route.path === '/Correlation' }">
+                <router-link to="/Correlation">Correlation</router-link>
+            </li>
             <!-- Add more chart types as needed -->
         </ul>
     </aside>
 </template>
+
   
 <script>
 export default {
@@ -35,10 +42,21 @@ export default {
 .sidebar li {
     margin-top: 20px;
     cursor: pointer;
-}
-
-.sidebar .active {
     color: #fff;
 }
+
+.sidebar .link a {
+    color: #b5b5c3 !important;
+    text-decoration: none !important;
+}
+
+/* Modify the link color when hovered */
+.sidebar .link a:hover {
+    color: #fff !important;
+}
+
+/* Styling for the active link */
+.sidebar .active a {
+    color: #fff !important;
+}
 </style>
-  
