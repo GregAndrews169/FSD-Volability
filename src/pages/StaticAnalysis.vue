@@ -1,5 +1,5 @@
 <template>
-
+   
     <div class="info-panel">
                 <h2 class = "h2">Static Analysis</h2>
                 <p class = "p">This is used to give insight into the scale and liquidity of your assets to inform asset selection decisions</p>
@@ -9,16 +9,16 @@
        <div class="input-group">
             <div class="date-panel">
                 <h3 class = "h3" >Date Selector</h3>
-                <p>Please select a date below:</p>
+                <p class = "p">Please select a date below:</p>
                 
                 <input type="date" class = "custom-input" v-model="startDate" id="start-date" required />
-                <button @click.prevent="handleCustomDateSubmit">Submit</button>
+                <button class = "date-button" @click.prevent="handleCustomDateSubmit">Submit</button>
             </div>
             
             
             <div class="metric-button-panel">
                 <h3 class = "h3" >Metric Selector</h3>
-                <p>Please select a metric below:</p>
+                <p class = "p">Please select a metric below:</p>
                 <button v-for="metric in metrics" :key="metric.id" @click.prevent="updateMetric(metric.id)"
                     :class="{ active: setMetric === metric.id }">
                     {{ metric.name }}
@@ -30,12 +30,13 @@
             <BarChart :data="formattedBarChartData" />
         </div>
 
-        <div class="chart-container">
+        <div class="pie-chart-container">
             <PieChart :data="formattedBarChartData" />
         </div>
 
 
     </div>
+    
 </template>
 
 <script setup>
@@ -178,6 +179,15 @@ const formattedBarChartData = computed(() => {
     border-radius: 10px;
 }
 
+.pie-chart-container {
+    background: linear-gradient(135deg, #2f1543 0%, #0f0e0e 100%);
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
 
 
 
@@ -190,5 +200,13 @@ const formattedBarChartData = computed(() => {
 .p{
     color: white;
 }
+
+.date-button{
+    background-color: #9746D6;
+    color: white;
+    margin-left: 10px;
+}
+
+
 
 </style>

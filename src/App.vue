@@ -33,6 +33,7 @@ import Sidebar from './components/SideBar.vue';
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 10px;
 }
 
 .header {

@@ -1,5 +1,5 @@
 
-<template>
+<template class ="temp">
 
     <div class="info-panel">
                 <h2 class = "h2">Time Series Analysis</h2>
@@ -266,6 +266,9 @@ const formattedChartData = computed(() => lineChartData.value);
     border-radius: 10px;
 }
 
+.temp{
+    border-radius: 10px;
+}
 
 </style>
   

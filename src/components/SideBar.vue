@@ -22,6 +22,7 @@
         <!-- Add more chart types as needed -->
     </ul>
 </aside>
+
 </template>
 
   
@@ -40,6 +41,8 @@ export default {
     width: 200px;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    margin-right: 5px;
+    border-radius: 10px;
 }
 
 .sidebar h3 {
@@ -103,5 +106,7 @@ export default {
         color: white;
         border: 1px solid #9746D6; /* Purple border color on hover and when active */
     }
+
+   
 
 </style>
