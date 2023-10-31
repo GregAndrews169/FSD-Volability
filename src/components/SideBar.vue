@@ -41,7 +41,7 @@ export default {
     width: 200px;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    margin-right: 5px;
+    margin-right: 8px;
     border-radius: 10px;
 }
 
@@ -71,7 +71,7 @@ export default {
 }
 
 .logo{
-    padding-left: 30px;
+    padding-left: 15px;
 
 }
 
