@@ -4,6 +4,7 @@ import App from './App.vue';
 import CsvImporter from './components/CsvImporter.vue';
 import ScatterPlot from './components/ScatterPlot.vue'; // Import the ScatterPlot component
 import LineChart from './components/LineChart.vue';// Import the BarChart component
+import BarChart from './components/BarChart.vue';// Import the BarChart component
 import router from './router'; // Or './router/index.js' based on your file structure
 
 const app = createApp(App);
