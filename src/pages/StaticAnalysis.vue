@@ -1,7 +1,12 @@
 <template>
+
+    <div class="info-panel">
+                <h2 class = "h2">Static Analysis</h2>
+                <p class = "p">This is used to give insight into the scale and liquidity of your assets to inform asset selection decisions</p>
+    </div>    
+
     <div class = "main">
-       
-        <div class="input-group">
+       <div class="input-group">
             <div class="date-panel">
                 <h3 class = "h3" >Date selector</h3>
                 <p>Please select a date below:</p>
@@ -162,6 +167,16 @@ const formattedBarChartData = computed(() => {
     padding: 10px;
     width: 100%;
     border-radius: 10px;
+}
+
+.h2{
+    color: hsl(274, 92%, 75%);
+    padding-bottom: 0px;
+    
+}
+
+.p{
+    color: white;
 }
 
 </style>

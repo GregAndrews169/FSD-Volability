@@ -1,16 +1,15 @@
 
 <template>
+
+    <div class="info-panel">
+                <h2 class = "h2">Time Series Analysis</h2>
+                <p class = "p">This is used to understand the behaviour of your assets over a period of time to inform buy, sell or hold descisions.</p>
+    </div>    
+
     <div class = "main">
-       
-
-       
-
-       
-
-
         <div class="date-and-measure-container">
             <div class="date-panel">
-                <h3 class = "h3">Date Selector</h3>
+                <h3 class = "h3">Date selector</h3>
                 <p class = "p">Please select your date below:</p>
                 <form class="date-form">
                     
@@ -51,7 +50,7 @@
             </div>
 
             <div class="measure-panel">
-                <h3 class = "h3">Metric Selector</h3>
+                <h3 class = "h3">Metric selector</h3>
                 <p class = "p" >Please select your metric below:</p>
                 <form class="measure-form">
                    
@@ -241,7 +240,17 @@ const formattedChartData = computed(() => lineChartData.value);
     color: white;
 }
 
+.p{
+    color: white;
+}
+
 .h3{
+    color: hsl(274, 92%, 75%);
+    padding-bottom: 0px;
+    
+}
+
+.h2{
     color: hsl(274, 92%, 75%);
     padding-bottom: 0px;
     
