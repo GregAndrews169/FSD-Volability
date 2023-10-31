@@ -8,7 +8,7 @@
     <div class = "main">
        <div class="input-group">
             <div class="date-panel">
-                <h3 class = "h3" >Date Selector</h3>
+                <h3 class = "h3" >Date selector</h3>
                 <p class = "p">Please select a date below:</p>
                 
                 <input type="date" class = "custom-input" v-model="startDate" id="start-date" required />
@@ -17,7 +17,7 @@
             
             
             <div class="metric-button-panel">
-                <h3 class = "h3" >Metric Selector</h3>
+                <h3 class = "h3" >Metric selector</h3>
                 <p class = "p">Please select a metric below:</p>
                 <button v-for="metric in metrics" :key="metric.id" @click.prevent="updateMetric(metric.id)"
                     :class="{ active: setMetric === metric.id }">
