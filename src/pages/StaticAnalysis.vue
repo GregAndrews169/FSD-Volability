@@ -1,14 +1,19 @@
 <template>
-    <div>
+    <div class = "main">
+       
         <div class="input-group">
-            <label>Date:</label>
             <div class="date-panel">
-                <label for="start-date">Start Date:</label>
-                <input type="date" v-model="startDate" id="start-date" required />
+                <h3 class = "h3" >Date selector</h3>
+                <p>Please select a date below:</p>
+                
+                <input type="date" class = "custom-input" v-model="startDate" id="start-date" required />
                 <button @click.prevent="handleCustomDateSubmit">Submit</button>
             </div>
-            <label for="metric">Metric:</label>
+            
+            
             <div class="metric-button-panel">
+                <h3 class = "h3" >Metric selector</h3>
+                <p>Please select a metric below:</p>
                 <button v-for="metric in metrics" :key="metric.id" @click.prevent="updateMetric(metric.id)"
                     :class="{ active: setMetric === metric.id }">
                     {{ metric.name }}
@@ -20,6 +25,7 @@
         </div>
     </div>
 </template>
+
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 import axios from 'axios';
@@ -56,9 +62,9 @@ const fetchData = async () => {
         'market-cap': 'Marketcap'
     };
     const colors = {
-        'Cardano': 'red',
-        'Bitcoin': 'blue',
-        'Ethereum': 'yellow'
+        'Cardano': '#FA5B7D',
+        'Bitcoin': '#F69F26',
+        'Ethereum': '#5089EF'
     };
     try {
         const response = await axios.post('http://127.0.0.1:5000/api/crypto', {
@@ -107,6 +113,8 @@ const formattedBarChartData = computed(() => {
     justify-content: space-between;
     width: 100%;
     flex-wrap: wrap;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 .date-panel,
 .metric-button-panel {
@@ -116,11 +124,44 @@ const formattedBarChartData = computed(() => {
     /* This ensures that padding and borders don't add to the width */
 }
 .metric-button-panel button.active {
-    background-color: #4caf50;
+    background-color: #9746D6;
     color: white;
 }
 .chart-container {
     background: linear-gradient(135deg, #2b3160 0%, #181616 100%);
     padding: 10px;
 }
+
+.date-panel{
+    background-color: #0f0f0f;
+    border-radius: 10px;
+    padding-bottom: 20px;
+}
+
+.metric-button-panel{
+    background-color: #0f0f0f;
+    border-radius: 10px;
+}
+
+.custom-input{
+    width: 40%; /* Make the input element span the entire width */
+    padding: 8px; /* Add some padding for better spacing */
+    border: 1px solid #ccc; /* Add a border for better visibility */
+    border-radius: 5px; /* Add rounded corners for a softer look */
+    font-size: 16px; /* Adjust the font size as needed */
+}
+
+.h3{
+    color: hsl(274, 92%, 75%);
+    padding-bottom: 0px;
+    
+}
+
+.chart-container {
+    background: linear-gradient(135deg, #2f1543 0%, #0f0e0e 100%);
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+}
+
 </style>
