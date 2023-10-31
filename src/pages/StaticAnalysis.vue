@@ -8,7 +8,7 @@
     <div class = "main">
        <div class="input-group">
             <div class="date-panel">
-                <h3 class = "h3" >Date selector</h3>
+                <h3 class = "h3" >Date Selector</h3>
                 <p>Please select a date below:</p>
                 
                 <input type="date" class = "custom-input" v-model="startDate" id="start-date" required />
@@ -17,7 +17,7 @@
             
             
             <div class="metric-button-panel">
-                <h3 class = "h3" >Metric selector</h3>
+                <h3 class = "h3" >Metric Selector</h3>
                 <p>Please select a metric below:</p>
                 <button v-for="metric in metrics" :key="metric.id" @click.prevent="updateMetric(metric.id)"
                     :class="{ active: setMetric === metric.id }">
@@ -25,9 +25,16 @@
                 </button>
             </div>
         </div>
+        
         <div class="chart-container">
             <BarChart :data="formattedBarChartData" />
         </div>
+
+        <div class="chart-container">
+            <PieChart :data="formattedBarChartData" />
+        </div>
+
+
     </div>
 </template>
 
@@ -35,6 +42,7 @@
 import { ref, onMounted, computed } from 'vue';
 import axios from 'axios';
 import BarChart from '../components/BarChart.vue';
+import PieChart from '../components/PieChart.vue';
 const setMetric = ref('volume');
 const barChartData = ref([]);
 const startDate = ref('2020-01-03');  // replace with your desired start date
@@ -135,6 +143,7 @@ const formattedBarChartData = computed(() => {
 .chart-container {
     background: linear-gradient(135deg, #2b3160 0%, #181616 100%);
     padding: 10px;
+    margin-bottom: 20px;
 }
 
 .date-panel{
@@ -168,6 +177,9 @@ const formattedBarChartData = computed(() => {
     width: 100%;
     border-radius: 10px;
 }
+
+
+
 
 .h2{
     color: hsl(274, 92%, 75%);

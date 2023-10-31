@@ -266,5 +266,6 @@ const formattedChartData = computed(() => lineChartData.value);
     border-radius: 10px;
 }
 
+
 </style>
   
