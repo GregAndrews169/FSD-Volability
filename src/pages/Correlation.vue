@@ -1,9 +1,15 @@
 <template>
+    
+    <div>
+        <h2 class = "h2">Correlation Analysis</h2>
+        <p class = "p">This is used to understand the correlation between certain assets in your portfolio to inform your asset selection process</p>
+    </div>   
+    
     <div class="main">
         <div class="date-and-measure-container">
             <!-- Date Panel from TimeSeries.vue -->
             <div class="date-panel">
-                <h3 class="h3">Date Selector</h3>
+                <h3 class="h3">Date selector</h3>
                 <p class="p">Please select your date below:</p>
                 <form class="date-form">
 
@@ -142,6 +148,45 @@ onMounted(fetchData);
 </script>
 
 <style scoped>
-/* Merged styles from TimeSeries.vue */
-/* ... (add styles from TimeSeries.vue and modify if needed) */
+.p {
+  color: white;
+}
+
+.h3 {
+  color: hsl(274, 92%, 75%);
+  padding-bottom: 0px;
+}
+
+.h2 {
+  color: hsl(274, 92%, 75%);
+  padding-bottom: 0px;
+}
+
+.date-panel {
+  flex: 1;
+  margin: 10px;
+  box-sizing: border-box;
+  background-color: #0f0f0f;
+  border-radius: 10px;
+  max-width: 500px;
+  padding-bottom: 20px;
+}
+
+.date-button-panel button.active {
+  background-color: #9746D6;
+  color: white;
+}
+
+.date-and-measure-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 220px;
+  align-items: center;
+}
+
+
 </style>
