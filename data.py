@@ -94,3 +94,77 @@ def create_JSON(coin_names, coin_dataframes, date_start, date_end):
         json.dump(json_data, outfile)
 
     return vol_dfs  # Return the dictionary of DataFrames
+
+
+def correlation(coin_names, coin_dataframes, date_start, date_end):
+    vol_dfs = {}  # Dictionary to store the volatility DataFrames
+
+    for coin_name in coin_names:
+        # Selecting the DataFrame for the coin
+        coin_df = coin_dataframes[
+            coin_name
+        ].copy()  # Create a copy to avoid changing the original DataFrame
+
+        date_start = Timestamp(date_start)
+        date_end = Timestamp(date_end)
+
+        # Create a new DataFrame containing only 'Date' and 'Daily_Return'
+        vol_df = coin_df[["Date", "Daily_Return"]].loc[(coin_df['Date'] >= date_start) & (coin_df['Date'] < date_end)]
+
+
+        # Remove NaN values that resulted from the rolling window calculation
+        vol_df.dropna(inplace=True)
+
+        # Store this DataFrame in the dictionary with the coin's name as the key
+        vol_dfs[coin_name] = vol_df
+
+
+
+   # Initialize the combined dataframe with the first coin's data
+    combined_df = vol_dfs[coin_names[0]].set_index("Date")
+
+    # Merge the other dataframes
+    for coin_name in coin_names[1:]:
+        vol_df = vol_dfs[coin_name].set_index("Date")
+        combined_df = combined_df.merge(vol_df[["Daily_Return"]], left_index=True, right_index=True, how="outer", suffixes=('', f'_{coin_name}'))
+    
+    # Rename columns for clarity
+    combined_df.columns = coin_names
+
+
+    # Return the correlation matrix
+    return combined_df.corr().abs()
+
+
+def matrix_to_objects(matrix):
+    
+    # Convert the matrix to a DataFrame if it's a list
+    if isinstance(matrix, list):
+        matrix = pd.DataFrame(matrix)
+
+    # Check if the matrix (DataFrame) is empty
+    if matrix.empty:
+        return []
+
+    matrix_values = matrix.values
+    
+    n = len(matrix_values)
+    
+    # Check if the matrix is nxn
+    for row in matrix_values:
+        if len(row) != n:
+            raise ValueError("The input matrix is not square")
+    
+    objects = []
+    for i in range(n):
+        for j in range(n):
+            objects.append({"x": i + 1, "y": j + 1, "v": matrix_values[i][j]})
+
+        # Export to a JSON file
+    with open('matrix_objects.json', 'w') as json_file:
+        json.dump(objects, json_file, indent=4)
+            
+    return objects
+
+
+
