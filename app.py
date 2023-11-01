@@ -37,7 +37,7 @@ def get_crypto_data():
         start_period = datetime.strptime(start_period_str, '%Y-%m-%d').date()
         end_period = datetime.strptime(end_period_str, '%Y-%m-%d').date()
 
-        coin_crypto = coin_data(coins, window_size=21)
+        coin_crypto = coin_data(coins, start_period, end_period)
         create_JSON(["coin_Cardano", "coin_Bitcoin", "coin_Ethereum"], coin_crypto, start_period, end_period)
 
         # Assuming "volatility_data.json" is correct and the file is in the correct path relative to the application
