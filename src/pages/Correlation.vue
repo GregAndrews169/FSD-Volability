@@ -35,14 +35,18 @@
                         </button>
                     </div>
 
-                    <div v-if="showCustomDateInput">
-                        <label for="start-date">Start Date:</label>
-                        <input type="date" v-model="startDate" id="start-date" required />
+                    <div class = "custom-date-div" v-if="showCustomDateInput">
+                        <div class="start-date-div">
+                        <h4 class = "h4">Start date</h4>
+                        <input class = "date-input-container" type="date" v-model="startDate" id="start-date" required />
+                        </div>
 
-                        <label for="end-date">End Date:</label>
-                        <input type="date" v-model="endDate" id="end-date" required />
+                        <div class="end-date-div">
+                        <h4 class = "h4">End date</h4>
+                        <input class = "date-input-container" type="date" v-model="endDate" id="end-date" required />
+                        </div>
 
-                        <button @click.prevent="handleCustomDateSubmit">Submit</button>
+                        <button class = "custom-date-button" @click.prevent="handleCustomDateSubmit">Submit</button>
 
                     </div>
                 </form>
@@ -188,5 +192,40 @@ onMounted(fetchData);
   align-items: center;
 }
 
+.custom-date-div{
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.custom-date-div{
+    background-color: #000000;
+    max-width: 200px;
+    margin-left: 240px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.start-date-div{
+    padding-bottom: 10px;
+}
+
+.end-date-div{
+    padding-bottom: 20px;
+}
+
+.date-input-container{
+    padding: 8px;
+}
+
+.h4{
+    color: #cb91f8;
+    margin-bottom: 3px;
+    margin-top: 10px;
+}
+
+.custom-date-button {
+    background-color: #9746D6;
+    color: white;
+}
 
 </style>
