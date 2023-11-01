@@ -33,7 +33,10 @@ export default {
                         data: props.data.map(coin => coin.data),
                         backgroundColor: props.data.map(coin => coin.backgroundColor),
                     },
+                    
+
                 ],
+
             };
 
             pieChart = new Chart(ctx, {

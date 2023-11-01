@@ -26,9 +26,21 @@
             </div>
         </div>
         
+
+        <div class="info-panel">
+                <h4 class = "h2">Bar Chart</h4>
+                <p class = "p2">Please select an asset in the legend below to remove or add to the Bar Chart:</p>
+        </div>        
+
         <div class="chart-container">
             <BarChart :data="formattedBarChartData" />
         </div>
+
+
+        <div class="info-panel">
+                <h4 class = "h2">Pie Chart</h4>
+                <p class = "p">Please select an asset in the legend below to remove or add to the Pie Chart:</p>
+        </div>   
 
         <div class="pie-chart-container">
             <PieChart :data="formattedBarChartData" />

@@ -33,7 +33,7 @@ export default {
                 data: dataset.data,
                 tension: 0.4,
                 pointRadius: 2,
-                hidden: false,
+                hidden: true,
             }));
 
             lineChart = new Chart(ctx, {
