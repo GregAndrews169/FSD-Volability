@@ -194,7 +194,36 @@ const fetchData = async () => {
                 {
                     label: 'Ethereum',
                     data: formatData(JSON.parse(response.data['coin_Ethereum'] || '{}')),
+                },
+                {
+                    label: 'XRP',
+                    data: formatData(JSON.parse(response.data['coin_XRP'] || '{}')),
+                },
+                {
+                    label: 'USDC',
+                    data: formatData(JSON.parse(response.data['coin_USDCoin'] || '{}')),
+                },
+                {
+                    label: 'Tether',
+                    data: formatData(JSON.parse(response.data['coin_Tether'] || '{}')),
+                },
+                {
+                    label: 'Stellar',
+                    data: formatData(JSON.parse(response.data['coin_Stellar'] || '{}')),
+                },
+                {
+                    label: 'Dogecoin',
+                    data: formatData(JSON.parse(response.data['coin_Dogecoin'] || '{}')),
+                },
+                {
+                    label: 'Tron',
+                    data: formatData(JSON.parse(response.data['coin_Tron'] || '{}')),
+                },
+                {
+                    label: 'BNB',
+                    data: formatData(JSON.parse(response.data['coin_BinanceCoin'] || '{}')),
                 }
+
             ];
         } else {
             console.error('No data received');
@@ -300,7 +329,7 @@ const formattedChartData = computed(() => lineChartData.value);
 }
 
 .h4{
-    color: #cb91f8;
+    color: rgb(203, 145, 248);
     margin-bottom: 3px;
     margin-top: 10px;
 }

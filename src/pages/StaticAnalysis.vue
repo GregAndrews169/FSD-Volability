@@ -77,8 +77,15 @@ const fetchData = async () => {
     };
     const colors = {
         'Cardano': '#FA5B7D',
-        'Bitcoin': '#F69F26',
-        'Ethereum': '#5089EF'
+        'Bitcoin': '#9F2DFF',
+        'Ethereum': '#5089EF',
+        'XRP': '#F5D232',
+        'USDC': '#F69F26',
+        'Tether': '#C2C3C9',
+        'Stellar': '#FB7793',
+        'Dogecoin': '#FFE573',
+        'Tron': '#90B6FB',
+        'BNB': '#FFC77A',
     };
     try {
         const response = await axios.post('http://127.0.0.1:5000/api/crypto', {
@@ -107,6 +114,41 @@ const fetchData = async () => {
                     label: 'Ethereum',
                     data: formatData(JSON.parse(response.data['coin_Ethereum'] || '{}')),
                     backgroundColor: colors['Ethereum']
+                },
+                'XRP': {
+                    label: 'XRP',
+                    data: formatData(JSON.parse(response.data['coin_XRP'] || '{}')),
+                    backgroundColor: colors['XRP']
+                },
+                'USDC': {
+                    label: 'USDC',
+                    data: formatData(JSON.parse(response.data['coin_USDCoin'] || '{}')),
+                    backgroundColor: colors['USDC']
+                },
+                'Tether': {
+                    label: 'Tether',
+                    data: formatData(JSON.parse(response.data['coin_Tether'] || '{}')),
+                    backgroundColor: colors['Tether']
+                },
+                'Stellar': {
+                    label: 'Stellar',
+                    data: formatData(JSON.parse(response.data['coin_Stellar'] || '{}')),
+                    backgroundColor: colors['Stellar']
+                },
+                'Dogecoin': {
+                    label: 'Dogecoin',
+                    data: formatData(JSON.parse(response.data['coin_Dogecoin'] || '{}')),
+                    backgroundColor: colors['Dogecoin']
+                },
+                'Tron': {
+                    label: 'Tron',
+                    data: formatData(JSON.parse(response.data['coin_Tron'] || '{}')),
+                    backgroundColor: colors['Tron']
+                },
+                'BNB': {
+                    label: 'BNB',
+                    data: formatData(JSON.parse(response.data['coin_BinanceCoin'] || '{}')),
+                    backgroundColor: colors['BNB']
                 }
             };
         } else {

@@ -71,10 +71,10 @@ export default {
                         borderWidth: 1,
                         backgroundColor({ raw }) {
                             const alpha = raw.v;  // Assuming raw.v is between 0 and 1
-                            const baseColor = `128, 0, 128`;  // RGB for purple color
+                            const baseColor = `203, 145, 248`;  // RGB for purple color
                             return `rgba(${baseColor}, ${alpha})`;
                         },
-                        borderColor: 'rgb(236, 228, 228, 0.7)',
+                        borderColor: 'rgb(236, 228, 228, 0.7)', 
                         width: ({ chart }) => (chart.chartArea || {}).width / n - 1,
                         height: ({ chart }) => (chart.chartArea || {}).height / n - 1,
                     }],

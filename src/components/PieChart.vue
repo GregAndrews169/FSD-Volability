@@ -1,6 +1,6 @@
 <template>
     <div class="pie_chart_title">
-        <canvas ref="pieChartCanvas" width="400" height="400"></canvas>
+        <canvas ref="pieChartCanvas" width="950" height="400"></canvas>
     </div>
 </template>
 
