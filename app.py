@@ -57,7 +57,7 @@ def get_correlation_data():
         start_period = datetime.strptime(start_period_str, '%Y-%m-%d').date()
         end_period = datetime.strptime(end_period_str, '%Y-%m-%d').date()
 
-        coin_crypto = coin_data(coins, window_size=21)
+        coin_crypto = coin_data(coins, start_period, end_period)
         cor = correlation(["coin_Bitcoin",
                            "coin_Ethereum",
                            "coin_Tether",
