@@ -25,7 +25,7 @@ warnings.filterwarnings("ignore")
 
 app = Flask(__name__)
 CORS(app)  # This will enable CORS for all routes
-
+#
 
 @app.route('/api/crypto', methods=['POST'])
 def get_crypto_data():
