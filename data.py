@@ -47,7 +47,7 @@ def coin_data(coins, date_start, date_end):
             df["Daily_Return"] = df["Close"].pct_change() * 100
             
             # Calculate rolling volatility
-            df["Volatility"] = df["Daily_Return"].rolling(window=window_size).std() * (365**0.5)
+            df["Volatility"] = df["Daily_Return"].rolling(window=window_size).std()
             
             coin_dataframes[coin] = df
 
@@ -117,7 +117,7 @@ def correlation(coin_names, coin_dataframes, date_start, date_end):
 
 
 
-   # Initialize the combined dataframe with the first coin's data
+   # Initialize the combined dataframe with the first coin's data (Bitcoin). Bitcoin is oldest coin. 
     combined_df = vol_dfs[coin_names[0]].set_index("Date")
 
     # Merge the other dataframes
@@ -164,4 +164,65 @@ def matrix_to_objects(matrix):
     return objects
 
 
+def profit_loss(coin_names, coin_dataframes, date_start, date_end, date_purchase, quantities):
+    vol_dfs = {}  # Dictionary to store the DataFrames
+    
+    # Convert dates to Timestamp outside the loop
+    date_start = Timestamp(date_start)
+    date_end = Timestamp(date_end)
+    date_purchase = Timestamp(date_purchase)
 
+    active = np.nonzero(quantities)[0]
+
+    active_names = [coin_names[i] for i in active]
+    
+    for coin_name in coin_names:
+        # Selecting the DataFrame for the coin
+        coin_df = coin_dataframes[coin_name].copy()  # Create a copy to avoid changing the original DataFrame
+        
+        # Assuming 'Date' is a column in coin_df
+        vol_df = coin_df[["Date", "Close"]].loc[coin_df['Date'] >= date_purchase]
+        vol_df.dropna(inplace=True)  # Assuming there is a reason for potential NaNs
+        vol_dfs[coin_name] = vol_df
+
+    # Initialize the combined dataframe with the first coin's data
+    combined_df = vol_dfs[coin_names[0]].set_index("Date")
+    
+    # Merge the other dataframes
+    for coin_name in coin_names[1:]:
+        vol_df = vol_dfs[coin_name].set_index("Date")
+        combined_df = combined_df.merge(vol_df["Close"], left_index=True, right_index=True, how="outer", suffixes=('', f'_{coin_name}'))
+    
+    # Rename columns for clarity
+    combined_df.columns = coin_names
+
+    # Filter out the coins with zero quantities
+    
+    nonz_df = combined_df[active_names]
+    
+    # Filter out the zero quantities
+    filtered_quantities = quantities[np.nonzero(quantities)]
+
+    # Calculate total portfolio value
+    nonz_df["total_portfolio"] = np.sum(nonz_df * filtered_quantities, axis=1)
+    init_investment = nonz_df["total_portfolio"].iloc[0]
+
+    nonz_df["init_investment"] = round(init_investment, 0)
+    nonz_df["profit"] = round(nonz_df["total_portfolio"] - init_investment, 0)
+    nonz_df["profit_perc"] = round((nonz_df["profit"] / init_investment)*100,0)
+
+    # Filter the DataFrame for the specified date range
+    filtered_df = nonz_df.loc[(nonz_df.index >= date_start) & (nonz_df.index < date_end)]
+
+
+    filtered_df.reset_index(inplace=True)
+    filtered_df.rename(columns={'index': 'Date'}, inplace=True)
+
+    json_data = filtered_df.to_json(orient="index", date_format="iso")
+
+    # Write the JSON data to a file
+    with open("pna_data.json", "w") as outfile:
+        outfile.write(json_data)
+    
+    # Return the DataFrame
+    return filtered_df

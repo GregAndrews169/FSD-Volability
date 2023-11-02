@@ -1,28 +1,32 @@
 <template>
     <aside class="sidebar">
-    <div>
-        <img class="logo" src="../assets/LogoVol.png" alt="Your Logo" />
-    </div>
-    <ul class = "button-list">
-        <li class="link" :class="{ active: $route.path === '/' }">
-            <router-link to="/">
-                <button class="button-style">Time Series Analysis</button>
-            </router-link>
-        </li>
-        <li class="link" :class="{ active: $route.path === '/StaticAnalysis' }">
-            <router-link to="/StaticAnalysis">
-                <button class="button-style">Static Analysis</button>
-            </router-link>
-        </li>
-        <li class="link" :class="{ active: $route.path === '/Correlation' }">
-            <router-link to="/Correlation">
-                <button class="button-style">Correlation</button>
-            </router-link>
-        </li>
-        <!-- Add more chart types as needed -->
-    </ul>
-</aside>
-
+        <div>
+            <img class="logo" src="../assets/LogoVol.png" alt="Your Logo" />
+        </div>
+        <ul class="button-list">
+            <li class="link" :class="{ active: $route.path === '/PnL' }">
+                <router-link to="/PnL">
+                    <button class="button-style">Profit & Loss Analysis </button>
+                </router-link>
+            </li>
+            <li class="link" :class="{ active: $route.path === '/' }">
+                <router-link to="/">
+                    <button class="button-style">Time Series Analysis</button>
+                </router-link>
+            </li>
+            <li class="link" :class="{ active: $route.path === '/StaticAnalysis' }">
+                <router-link to="/StaticAnalysis">
+                    <button class="button-style">Static Analysis</button>
+                </router-link>
+            </li>
+            <li class="link" :class="{ active: $route.path === '/Correlation' }">
+                <router-link to="/Correlation">
+                    <button class="button-style">Correlation</button>
+                </router-link>
+            </li>
+            <!-- Add more chart types as needed -->
+        </ul>
+    </aside>
 </template>
 
   
@@ -70,43 +74,44 @@ export default {
     color: #df1212 !important;
 }
 
-.logo{
+.logo {
     padding-left: 15px;
 
 }
 
 .button-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
-    .button-style {
-        background-color: black;
-        color: white;
-        display: block;
-        width: 100%;
-        padding: 10px;
-        text-align: center;
-        text-decoration: none;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: background-color 0.2s, border-color 0.2s, color 0.2s;
-    }
+.button-style {
+    background-color: black;
+    color: white;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
 
-    .button-style.active {
-        background-color: #9746D6; /* Purple background when active */
-        color: white;
-        border: 1px solid #9746D6; /* Purple border color when active */
-    }
-    .button-style:hover {
-        background-color: #9746D6;
-        color: white;
-        border: 1px solid #9746D6; /* Purple border color on hover and when active */
-    }
+.button-style.active {
+    background-color: #9746D6;
+    /* Purple background when active */
+    color: white;
+    border: 1px solid #9746D6;
+    /* Purple border color when active */
+}
 
-   
-
+.button-style:hover {
+    background-color: #9746D6;
+    color: white;
+    border: 1px solid #9746D6;
+    /* Purple border color on hover and when active */
+}
 </style>
