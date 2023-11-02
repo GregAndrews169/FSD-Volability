@@ -82,7 +82,7 @@
 
         <div class="info-panel">
                 <h4 class = "h2">Time Series Line Chart</h4>
-                <p class = "p2">Please select an asset in the legend below to remove or add to the Line Chart:</p>
+                <p class = "p2">Please select an asset in the legend below to add the Line Chart:</p>
         </div>
 
         <div class="chart-container">

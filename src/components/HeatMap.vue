@@ -1,4 +1,7 @@
 <template>
+    <div>
+        <img src="../assets/heatmapscale.png" alt="Heatmap Scale" style="width: 400px; height: auto;" />
+    </div>
     <div class="chart-container">
         <canvas ref="matrixChart" width="950" height="800"></canvas>
     </div>

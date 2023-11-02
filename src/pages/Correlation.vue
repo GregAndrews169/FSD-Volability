@@ -52,9 +52,13 @@
                 </form>
             </div>
 
-            <!-- If you need a Metric Panel you can add it here -->
-
+            
         </div>
+
+        <div>
+                <h4 class = "h4">Correlation Heat Map</h4>
+                <p class = "p2">In the heatmap below, lighter shades of purple represent more highly corelated assets whereas darker shades represent less correlation</p>
+            </div>   
 
         <div class="chart-container">
             <Heatmap :matrix-data="correlationMatrix" />
@@ -152,8 +156,15 @@ onMounted(fetchData);
 </script>
 
 <style scoped>
+.p2 {
+  color: white;
+  max-width: 500px;
+  padding-left: 220px;  
+}
+
 .p {
   color: white;
+ 
 }
 
 .h3 {
@@ -188,7 +199,7 @@ onMounted(fetchData);
   flex-wrap: wrap;
   padding-top: 20px;
   padding-bottom: 20px;
-  padding-left: 220px;
+  padding-left: 200px;
   align-items: center;
 }
 
