@@ -1,9 +1,8 @@
 
 <template class ="temp">
     <div class="info-panel">
-        <h2 class="h2">Time Series Analysis</h2>
-        <p class="p">This is used to understand the behaviour of your assets over a period of time to inform buy, sell or
-            hold descisions.</p>
+        <h2 class="h2">Profit & Loss Analysis</h2>
+        <p class="p">This is used to calculate your profit and returns from buying crypto assets from a specific time benchmark</p>
     </div>
 
     <div class="main">
