@@ -4,13 +4,18 @@
             <img class="logo" src="../assets/LogoVol.png" alt="Your Logo" />
         </div>
         <ul class="button-list">
+            <li class="link" :class="{ active: $route.path === '/' }">
+                <router-link to="/">
+                    <button class="button-style">Home</button>
+                </router-link>
+            </li>
             <li class="link" :class="{ active: $route.path === '/PnL' }">
                 <router-link to="/PnL">
                     <button class="button-style">Profit & Loss Analysis </button>
                 </router-link>
             </li>
-            <li class="link" :class="{ active: $route.path === '/' }">
-                <router-link to="/">
+            <li class="link" :class="{ active: $route.path === '/TimeSeries' }">
+                <router-link to="/TimeSeries">
                     <button class="button-style">Time Series Analysis</button>
                 </router-link>
             </li>

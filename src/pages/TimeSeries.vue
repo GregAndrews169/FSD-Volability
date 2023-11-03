@@ -1,18 +1,18 @@
 
 <template class ="temp">
-
     <div class="info-panel">
-                <h2 class = "h2">Time Series Analysis</h2>
-                <p class = "p">This is used to understand the behaviour of your assets over a period of time to inform buy, sell or hold descisions.</p>
-    </div>    
+        <h2 class="h2">Time Series Analysis</h2>
+        <p class="p">This is used to understand the behaviour of your assets over a period of time to inform buy, sell or
+            hold descisions.</p>
+    </div>
 
-    <div class = "main">
+    <div class="main">
         <div class="date-and-measure-container">
             <div class="date-panel">
-                <h3 class = "h3">Date selector</h3>
-                <p class = "p">Please select your date below:</p>
+                <h3 class="h3">Date selector</h3>
+                <p class="p">Please select your date below:</p>
                 <form class="date-form">
-                    
+
                     <div class="date-button-panel">
                         <button @click.prevent="updateDateRange('week')" :class="{ active: setDateRange === 'week' }">
                             Week
@@ -35,18 +35,18 @@
                         </button>
                     </div>
 
-                    <div class = "custom-date-div" v-if="showCustomDateInput">
+                    <div class="custom-date-div" v-if="showCustomDateInput">
                         <div class="start-date-div">
-                        <h4 class = "h4">Start date</h4>
-                        <input class = "date-input-container" type="date" v-model="startDate" id="start-date" required />
+                            <h4 class="h4">Start date</h4>
+                            <input class="date-input-container" type="date" v-model="startDate" id="start-date" required />
                         </div>
 
                         <div class="end-date-div">
-                        <h4 class = "h4">End date</h4>
-                        <input class = "date-input-container" type="date" v-model="endDate" id="end-date" required />
+                            <h4 class="h4">End date</h4>
+                            <input class="date-input-container" type="date" v-model="endDate" id="end-date" required />
                         </div>
 
-                        <button class = "custom-date-button" @click.prevent="handleCustomDateSubmit">Submit</button>
+                        <button class="custom-date-button" @click.prevent="handleCustomDateSubmit">Submit</button>
 
                     </div>
                 </form>
@@ -54,10 +54,10 @@
             </div>
 
             <div class="measure-panel">
-                <h3 class = "h3">Metric selector</h3>
-                <p class = "p" >Please select your metric below:</p>
+                <h3 class="h3">Metric selector</h3>
+                <p class="p">Please select your metric below:</p>
                 <form class="measure-form">
-                   
+
                     <div class="measure-button-panel">
                         <button @click.prevent="updateMetric('volatility')" :class="{ active: setMetric === 'volatility' }">
                             Volatility
@@ -81,12 +81,12 @@
         </div>
 
         <div class="info-panel">
-                <h4 class = "h2">Time Series Line Chart</h4>
-                <p class = "p2">Please select an asset in the legend below to add the Line Chart:</p>
+            <h4 class="h2">Time Series Line Chart</h4>
+            <p class="p2">Please select an asset in the legend below to add the Line Chart:</p>
         </div>
 
         <div class="chart-container">
-            <LineChart :data="formattedChartData" />
+            <LineChart :data="formattedChartData" :initialHidden="true" />
         </div>
 
     </div>
@@ -278,42 +278,42 @@ const formattedChartData = computed(() => lineChartData.value);
     color: white;
 }
 
-.p{
+.p {
     color: white;
 }
 
-.h3{
+.h3 {
     color: hsl(274, 92%, 75%);
     padding-bottom: 0px;
-    
+
 }
 
-.h2{
+.h2 {
     color: hsl(274, 92%, 75%);
     padding-bottom: 0px;
-    
+
 }
 
-.date-panel{
+.date-panel {
     background-color: #0f0f0f;
     border-radius: 10px;
 }
 
-.measure-panel{
+.measure-panel {
     background-color: #0f0f0f;
     border-radius: 10px;
 }
 
-.temp{
+.temp {
     border-radius: 10px;
 }
 
-.custom-date-div{
+.custom-date-div {
     padding-top: 10px;
     padding-bottom: 20px;
 }
 
-.custom-date-div{
+.custom-date-div {
     background-color: #000000;
     max-width: 200px;
     margin-left: 240px;
@@ -321,19 +321,19 @@ const formattedChartData = computed(() => lineChartData.value);
     border-radius: 10px;
 }
 
-.start-date-div{
+.start-date-div {
     padding-bottom: 10px;
 }
 
-.end-date-div{
+.end-date-div {
     padding-bottom: 20px;
 }
 
-.date-input-container{
+.date-input-container {
     padding: 8px;
 }
 
-.h4{
+.h4 {
     color: rgb(203, 145, 248);
     margin-bottom: 3px;
     margin-top: 10px;
@@ -343,6 +343,5 @@ const formattedChartData = computed(() => lineChartData.value);
     background-color: #9746D6;
     color: white;
 }
-
 </style>
   

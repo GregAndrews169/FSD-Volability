@@ -1,6 +1,6 @@
 <template>
     <div class="volatility_title">
-        
+
         <canvas ref="lineChartCanvas" width="970" height="400"></canvas>
     </div>
 </template>
@@ -15,6 +15,10 @@ export default {
         data: {
             type: Array, // array of data points, each point being { x: string, y: number }
             required: true,
+        },
+        initialHidden: {
+            type: Boolean,
+            default: true, // Default is true to be hidden initially
         },
     },
     setup(props) {
@@ -33,7 +37,7 @@ export default {
                 data: dataset.data,
                 tension: 0.4,
                 pointRadius: 2,
-                hidden: true,
+                hidden: props.initialHidden,
             }));
 
             lineChart = new Chart(ctx, {
@@ -79,6 +83,4 @@ export default {
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
