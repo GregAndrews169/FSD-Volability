@@ -56,11 +56,11 @@
             <div class="row-column">
     <div class="column">
         <h4 class="h4">Initial Investment</h4>
-        <span class="bottom-span">{{ initInvestment }}$</span>
+        <span class="bottom-span">${{ initInvestment }}</span>
     </div>
     <div class="column">
         <h4 class="h4">Profit</h4>
-        <span class="bottom-span">{{ lastProfitValue }}$</span>
+        <span class="bottom-span">${{ lastProfitValue }}</span>
     </div>
     <div class="column">
         <h4 class="h4">Return</h4>
@@ -433,6 +433,7 @@ const formattedChartData = computed(() => lineChartData.value);
 }
 
 .row-column {
+    flex: 1;
     display: flex;
     justify-content: space-between; /* Adjust as needed */
     background-color: #0f0f0f;
@@ -444,19 +445,16 @@ const formattedChartData = computed(() => lineChartData.value);
     padding: 10px; /* Add padding for spacing */
     display: flex;
     flex-direction: column; /* Distribute items vertically */
-    align-items: end;
+    align-items: center;
 }
 
-.column .h4 {
-    align-self: flex-start; /* Align h4 items at the top */
-}
-
-.column .bottom-span {
-    align-self: flex-end; /* Align span items at the bottom */
-}
 
 .number-input-container {
     height: 25px; /* Adjust the height as needed */
+}
+
+.bottom-span{
+font-weight: bold;    
 }
 </style>
   
