@@ -26,7 +26,7 @@
             </li>
             <li class="link" :class="{ active: $route.path === '/Correlation' }">
                 <router-link to="/Correlation">
-                    <button class="button-style">Correlation</button>
+                    <button class="button-style">Correlation Analysis</button>
                 </router-link>
             </li>
             <!-- Add more chart types as needed -->
