@@ -3,7 +3,16 @@
     <div>
         <img class="logo" src="../assets/LogoVol.png" alt="Your Logo" />
     </div>
+
     <ul class = "button-list">
+
+
+        <li class="link" :class="{ active: $route.path === '/Correlation' }">
+            <router-link to="/Home">
+                <button class="button-style">Home</button>
+            </router-link>
+        </li>
+        
         <li class="link" :class="{ active: $route.path === '/' }">
             <router-link to="/">
                 <button class="button-style">Time Series Analysis</button>
@@ -19,6 +28,7 @@
                 <button class="button-style">Correlation</button>
             </router-link>
         </li>
+
         <!-- Add more chart types as needed -->
     </ul>
 </aside>
