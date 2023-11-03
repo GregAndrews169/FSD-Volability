@@ -70,7 +70,7 @@
 
         </div>
         <div class="chart-container">
-            <LineChart :data="formattedChartData" />
+            <LineChart :data="formattedChartData" :initialHidden="false"/>
         </div><br>
 
         <div class="purchase-details-div">
