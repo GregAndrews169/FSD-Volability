@@ -58,7 +58,9 @@ Follow these steps to set up your Python environment:
 
 With your environment set up and dependencies installed, start the local server by running:
 
-python app.py
+    ```
+    python app.py
+    ```
 
 Your server should now be running on `http://localhost:5000`.
 
