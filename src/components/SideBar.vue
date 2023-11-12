@@ -29,7 +29,7 @@
                     <button class="button-style">Correlation Analysis</button>
                 </router-link>
             </li>
-            <!-- Add more chart types as needed -->
+
         </ul>
     </aside>
 </template>
@@ -38,12 +38,10 @@
 <script>
 export default {
     name: "Sidebar",
-    // You can add props, data, computed properties, methods, etc. if needed
 };
 </script>
   
 <style scoped>
-/* Styles specific to the Sidebar component */
 .sidebar {
     background-color: #000000;
     color: #b5b5c3;
@@ -69,12 +67,10 @@ export default {
     text-decoration: none !important;
 }
 
-/* Modify the link color when hovered */
 .sidebar .link a:hover {
     color: #e62e2e !important;
 }
 
-/* Styling for the active link */
 .sidebar .active a {
     color: #df1212 !important;
 }
@@ -107,16 +103,13 @@ export default {
 
 .button-style.active {
     background-color: #9746D6;
-    /* Purple background when active */
     color: white;
     border: 1px solid #9746D6;
-    /* Purple border color when active */
 }
 
 .button-style:hover {
     background-color: #9746D6;
     color: white;
     border: 1px solid #9746D6;
-    /* Purple border color on hover and when active */
 }
 </style>

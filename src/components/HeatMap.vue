@@ -58,10 +58,10 @@ export default {
         const matrixChart = ref(null);
         const matrixChartInstance = ref(null);
 
-        console.log("Matrix Data Prop in Heatmap:", props.matrixData);  // Logging data when component sets up
+        console.log("Matrix Data Prop in Heatmap:", props.matrixData);
 
         const initChart = () => {
-            const n = Math.sqrt(props.matrixData.length); // Determine the dimension 'n' based on the length of matrixData
+            const n = Math.sqrt(props.matrixData.length);
             if (matrixChartInstance.value) {
                 matrixChartInstance.value.destroy(); // destroy the previous instance
             }
@@ -73,11 +73,11 @@ export default {
                         data: props.matrixData,
                         borderWidth: 1,
                         backgroundColor({ raw }) {
-                            const alpha = raw.v;  // Assuming raw.v is between 0 and 1
-                            const baseColor = `203, 145, 248`;  // RGB for purple color
+                            const alpha = raw.v;
+                            const baseColor = `203, 145, 248`;
                             return `rgba(${baseColor}, ${alpha})`;
                         },
-                        borderColor: 'rgb(236, 228, 228, 0.7)', 
+                        borderColor: 'rgb(236, 228, 228, 0.7)',
                         width: ({ chart }) => (chart.chartArea || {}).width / n - 1,
                         height: ({ chart }) => (chart.chartArea || {}).height / n - 1,
                     }],
@@ -93,7 +93,6 @@ export default {
                             ticks: {
                                 padding: 40,
                                 callback: function (value, index, ticks) {
-                                    // Check if the index is within bounds
                                     if (index < props.labels.length) {
                                         return props.labels[index];
                                     }

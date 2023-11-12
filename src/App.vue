@@ -17,7 +17,7 @@ import Sidebar from './components/SideBar.vue';
   display: flex;
   height: 100vh;
   width: 110%;
-  
+
 }
 
 .main-content {
@@ -26,9 +26,7 @@ import Sidebar from './components/SideBar.vue';
   overflow-y: auto;
   background: #000000;
   color: #ddd9d9;
-  /* max-width: 1200px; Comment this out if you don't need a limit. */
   width: 100%;
-  /* Changed from 90% to 100% */
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -43,6 +41,4 @@ import Sidebar from './components/SideBar.vue';
   border-bottom: 1px solid #e1e1e1;
   width: 100%;
 }
-
-
 </style>

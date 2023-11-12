@@ -18,7 +18,7 @@ export default {
         },
         initialHidden: {
             type: Boolean,
-            default: true, // Default is true to be hidden initially
+            default: true, // hide/not-hide legend
         },
     },
     setup(props) {
@@ -46,8 +46,8 @@ export default {
                     datasets: datasets,
                 },
                 options: {
-                    responsive: false,          // Disables responsiveness
-                    maintainAspectRatio: false, // Allows the chart to fill the container
+                    responsive: false,
+                    maintainAspectRatio: false,
                     scales: {
                         x: {
                             grid: { color: '#37474F', },

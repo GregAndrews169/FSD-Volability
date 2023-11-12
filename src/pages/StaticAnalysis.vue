@@ -1,36 +1,36 @@
 <template>
-   
     <div class="info-panel">
-                <h2 class = "h2">Static Analysis</h2>
-                <p class = "p">This is used to give insight into the scale and liquidity of your assets to inform asset selection decisions</p>
-    </div>    
+        <h2 class="h2">Static Analysis</h2>
+        <p class="p">This is used to give insight into the scale and liquidity of your assets to inform asset selection
+            decisions</p>
+    </div>
 
-    <div class = "main">
-       <div class="input-group">
+    <div class="main">
+        <div class="input-group">
             <div class="date-panel">
-                <h3 class = "h3" >Date selector</h3>
-                <p class = "p">Please select a date below:</p>
-                
-                <input type="date" class = "custom-input" v-model="startDate" id="start-date" required />
-                <button class = "date-button" @click.prevent="handleCustomDateSubmit">Submit</button>
+                <h3 class="h3">Date selector</h3>
+                <p class="p">Please select a date below:</p>
+
+                <input type="date" class="custom-input" v-model="startDate" id="start-date" required />
+                <button class="date-button" @click.prevent="handleCustomDateSubmit">Submit</button>
             </div>
-            
-            
+
+
             <div class="metric-button-panel">
-                <h3 class = "h3" >Metric selector</h3>
-                <p class = "p">Please select a metric below:</p>
+                <h3 class="h3">Metric selector</h3>
+                <p class="p">Please select a metric below:</p>
                 <button v-for="metric in metrics" :key="metric.id" @click.prevent="updateMetric(metric.id)"
                     :class="{ active: setMetric === metric.id }">
                     {{ metric.name }}
                 </button>
             </div>
         </div>
-        
+
 
         <div class="info-panel">
-                <h4 class = "h2">Bar Chart</h4>
-                <p class = "p2">Please select an asset in the legend below to remove or add to the Bar Chart:</p>
-        </div>        
+            <h4 class="h2">Bar Chart</h4>
+            <p class="p2">Please select an asset in the legend below to remove or add to the Bar Chart:</p>
+        </div>
 
         <div class="chart-container">
             <BarChart :data="formattedBarChartData" />
@@ -38,9 +38,9 @@
 
 
         <div class="info-panel">
-                <h4 class = "h2">Pie Chart</h4>
-                <p class = "p">Please select an asset in the legend below to remove or add to the Pie Chart:</p>
-        </div>   
+            <h4 class="h2">Pie Chart</h4>
+            <p class="p">Please select an asset in the legend below to remove or add to the Pie Chart:</p>
+        </div>
 
         <div class="pie-chart-container">
             <PieChart :data="formattedBarChartData" />
@@ -48,7 +48,6 @@
 
 
     </div>
-    
 </template>
 
 <script setup>
@@ -58,7 +57,7 @@ import BarChart from '../components/BarChart.vue';
 import PieChart from '../components/PieChart.vue';
 const setMetric = ref('volume');
 const barChartData = ref([]);
-const startDate = ref('2020-01-03');  // replace with your desired start date
+const startDate = ref('2020-01-03');
 const endDate = ref('2020-01-04');
 const metrics = [
     { id: 'volume', name: 'Volume' },
@@ -66,7 +65,7 @@ const metrics = [
 ];
 const updateMetric = (metricId) => {
     setMetric.value = metricId;
-    fetchData(); // Optionally re-fetch data after updating the metric
+    fetchData();
 };
 function handleCustomDateSubmit() {
     if (!startDate.value) {
@@ -184,46 +183,48 @@ const formattedBarChartData = computed(() => {
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
 .date-panel,
 .metric-button-panel {
     flex: 1;
     margin: 0 10px;
     box-sizing: border-box;
-    /* This ensures that padding and borders don't add to the width */
 }
+
 .metric-button-panel button.active {
     background-color: #9746D6;
     color: white;
 }
+
 .chart-container {
     background: linear-gradient(135deg, #2b3160 0%, #181616 100%);
     padding: 10px;
     margin-bottom: 20px;
 }
 
-.date-panel{
+.date-panel {
     background-color: #0f0f0f;
     border-radius: 10px;
     padding-bottom: 20px;
 }
 
-.metric-button-panel{
+.metric-button-panel {
     background-color: #0f0f0f;
     border-radius: 10px;
 }
 
-.custom-input{
-    width: 40%; /* Make the input element span the entire width */
-    padding: 8px; /* Add some padding for better spacing */
-    border: 1px solid #ccc; /* Add a border for better visibility */
-    border-radius: 5px; /* Add rounded corners for a softer look */
-    font-size: 16px; /* Adjust the font size as needed */
+.custom-input {
+    width: 40%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
-.h3{
+.h3 {
     color: hsl(274, 92%, 75%);
     padding-bottom: 0px;
-    
+
 }
 
 .chart-container {
@@ -245,22 +246,19 @@ const formattedBarChartData = computed(() => {
 
 
 
-.h2{
+.h2 {
     color: hsl(274, 92%, 75%);
     padding-bottom: 0px;
-    
+
 }
 
-.p{
+.p {
     color: white;
 }
 
-.date-button{
+.date-button {
     background-color: #9746D6;
     color: white;
     margin-left: 10px;
 }
-
-
-
 </style>

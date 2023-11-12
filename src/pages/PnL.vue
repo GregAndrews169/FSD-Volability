@@ -2,7 +2,8 @@
 <template class ="temp">
     <div class="info-panel">
         <h2 class="h2">Profit & Loss Analysis</h2>
-        <p class="p">This is used to calculate your profit and returns from buying crypto assets from a specific time benchmark</p>
+        <p class="p">This is used to calculate your profit and returns from buying crypto assets from a specific time
+            benchmark</p>
     </div>
 
     <div class="main">
@@ -53,23 +54,23 @@
             </div>
 
             <div class="row-column">
-    <div class="column">
-        <h4 class="h4">Initial Investment</h4>
-        <span class="bottom-span">${{ initInvestment }}</span>
-    </div>
-    <div class="column">
-        <h4 class="h4">Profit</h4>
-        <span class="bottom-span">${{ lastProfitValue }}</span>
-    </div>
-    <div class="column">
-        <h4 class="h4">Return</h4>
-        <span class="bottom-span">{{ lastProfitPercent }}%</span>
-    </div>
-</div>
+                <div class="column">
+                    <h4 class="h4">Initial Investment</h4>
+                    <span class="bottom-span">${{ initInvestment }}</span>
+                </div>
+                <div class="column">
+                    <h4 class="h4">Profit</h4>
+                    <span class="bottom-span">${{ lastProfitValue }}</span>
+                </div>
+                <div class="column">
+                    <h4 class="h4">Return</h4>
+                    <span class="bottom-span">{{ lastProfitPercent }}%</span>
+                </div>
+            </div>
 
         </div>
         <div class="chart-container">
-            <LineChart :data="formattedChartData" :initialHidden="false"/>
+            <LineChart :data="formattedChartData" :initialHidden="false" />
         </div><br>
 
         <div class="purchase-details-div">
@@ -82,63 +83,63 @@
 
             <div class="coin-quant-div">
                 <div class="coin-item">
-                <h4 class="h4">BTC</h4>
-                <input class="number-input-container" type="number" step="0.01" v-model="bitcoinQuant" id="btc-quant"
-                    required />
-                </div>
-                
-                    <div class="coin-item"> 
-                <h4 class="h4">ETH</h4>
-                <input class="number-input-container" type="number" step="0.01" v-model="ethereumQuant" id="eth-quant"
-                    required />
-                </div>
-                
-                <div class="coin-item"> 
-                <h4 class="h4">TETH</h4>
-                <input class="number-input-container" type="number" step="0.01" v-model="tetherQuant" id="teth-quant"
-                    required />
+                    <h4 class="h4">BTC</h4>
+                    <input class="number-input-container" type="number" step="0.01" v-model="bitcoinQuant" id="btc-quant"
+                        required />
                 </div>
 
-                    <div class="coin-item">
-                <h4 class="h4">BIN</h4>
-                <input class="number-input-container" type="number" step="0.01" v-model="binanceQuant" id="bin-quant"
-                    required />
+                <div class="coin-item">
+                    <h4 class="h4">ETH</h4>
+                    <input class="number-input-container" type="number" step="0.01" v-model="ethereumQuant" id="eth-quant"
+                        required />
                 </div>
 
-                    <div class="coin-item">
-                <h4 class="h4">XRP</h4>
-                <input class="number-input-container" type="number" step="0.01" v-model="xrpQuant" id="xrp-quant"
-                    required />
+                <div class="coin-item">
+                    <h4 class="h4">TETH</h4>
+                    <input class="number-input-container" type="number" step="0.01" v-model="tetherQuant" id="teth-quant"
+                        required />
                 </div>
 
-                    <div class="coin-item">
-                <h4 class="h4">USDC</h4>
-                <input class="number-input-container" type="number" step="0.01" v-model="usdcQuant" id="usdc-quant"
-                    required />
+                <div class="coin-item">
+                    <h4 class="h4">BIN</h4>
+                    <input class="number-input-container" type="number" step="0.01" v-model="binanceQuant" id="bin-quant"
+                        required />
                 </div>
 
-                    <div class="coin-item">
-                <h4 class="h4">STE</h4>
-                <input class="number-input-container" type="number" step="0.01" v-model="stellarQuant" id="ste-quant"
-                    required />
+                <div class="coin-item">
+                    <h4 class="h4">XRP</h4>
+                    <input class="number-input-container" type="number" step="0.01" v-model="xrpQuant" id="xrp-quant"
+                        required />
                 </div>
 
-                    <div class="coin-item">
-                <h4 class="h4">CAR</h4>
-                <input class="number-input-container" type="number" step="0.01" v-model="cardanoQuant" id="car-quant"
-                    required />
+                <div class="coin-item">
+                    <h4 class="h4">USDC</h4>
+                    <input class="number-input-container" type="number" step="0.01" v-model="usdcQuant" id="usdc-quant"
+                        required />
                 </div>
 
-                    <div class="coin-item">
-                <h4 class="h4">DOG</h4>
-                <input class="number-input-container" type="number" step="0.01" v-model="dogecoinQuant" id="dog-quant"
-                    required />
+                <div class="coin-item">
+                    <h4 class="h4">STE</h4>
+                    <input class="number-input-container" type="number" step="0.01" v-model="stellarQuant" id="ste-quant"
+                        required />
                 </div>
 
-                    <div class="coin-item">
-                <h4 class="h4">TRO</h4>
-                <input class="number-input-container" type="number" step="0.01" v-model="tronQuant" id="tro-quant"
-                    required />
+                <div class="coin-item">
+                    <h4 class="h4">CAR</h4>
+                    <input class="number-input-container" type="number" step="0.01" v-model="cardanoQuant" id="car-quant"
+                        required />
+                </div>
+
+                <div class="coin-item">
+                    <h4 class="h4">DOG</h4>
+                    <input class="number-input-container" type="number" step="0.01" v-model="dogecoinQuant" id="dog-quant"
+                        required />
+                </div>
+
+                <div class="coin-item">
+                    <h4 class="h4">TRO</h4>
+                    <input class="number-input-container" type="number" step="0.01" v-model="tronQuant" id="tro-quant"
+                        required />
                 </div>
             </div><br><br>
 
@@ -323,7 +324,6 @@ const formattedChartData = computed(() => lineChartData.value);
     flex: 1;
     margin: 0 10px;
     box-sizing: border-box;
-    /* This ensures that padding and borders don't add to the width */
 }
 
 .date-form,
@@ -368,7 +368,7 @@ const formattedChartData = computed(() => lineChartData.value);
 .measure-panel {
     background-color: #0f0f0f;
     border-radius: 10px;
-    
+
 }
 
 .temp {
@@ -411,7 +411,7 @@ const formattedChartData = computed(() => lineChartData.value);
     color: white;
 }
 
-.purchase-details-div{
+.purchase-details-div {
     justify-content: space-between;
     width: 100%;
     padding-top: 20px;
@@ -420,40 +420,40 @@ const formattedChartData = computed(() => lineChartData.value);
     border-radius: 10px;
 }
 
-.coin-quant-div{
+.coin-quant-div {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
 .coin-item {
-    flex: 0 0 calc(20% - 10px); /* Adjust the width as needed */
-    margin-right: 10px; /* Adjust the spacing between items */
+    flex: 0 0 calc(20% - 10px);
+    margin-right: 10px;
 }
 
 .row-column {
     flex: 1;
     display: flex;
-    justify-content: space-between; /* Adjust as needed */
+    justify-content: space-between;
     background-color: #0f0f0f;
     border-radius: 10px;
 }
 
 .column {
     flex: 1;
-    padding: 10px; /* Add padding for spacing */
+    padding: 10px;
     display: flex;
-    flex-direction: column; /* Distribute items vertically */
+    flex-direction: column;
     align-items: center;
 }
 
 
 .number-input-container {
-    height: 25px; /* Adjust the height as needed */
+    height: 25px;
 }
 
-.bottom-span{
-font-weight: bold;    
+.bottom-span {
+    font-weight: bold;
 }
 </style>
   

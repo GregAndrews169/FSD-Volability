@@ -257,7 +257,6 @@ const formattedChartData = computed(() => lineChartData.value);
     flex: 1;
     margin: 0 10px;
     box-sizing: border-box;
-    /* This ensures that padding and borders don't add to the width */
 }
 
 .date-form,

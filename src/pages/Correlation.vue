@@ -1,13 +1,13 @@
 <template>
-    
     <div>
-        <h2 class = "h2">Correlation Analysis</h2>
-        <p class = "p">This is used to understand the correlation between certain assets in your portfolio to inform your asset selection process</p>
-    </div>   
-    
+        <h2 class="h2">Correlation Analysis</h2>
+        <p class="p">This is used to understand the correlation between certain assets in your portfolio to inform your
+            asset selection process</p>
+    </div>
+
     <div class="main">
         <div class="date-and-measure-container">
-            <!-- Date Panel from TimeSeries.vue -->
+            <!-- Date Panel -->
             <div class="date-panel">
                 <h3 class="h3">Date selector</h3>
                 <p class="p">Please select your date below:</p>
@@ -35,30 +35,31 @@
                         </button>
                     </div>
 
-                    <div class = "custom-date-div" v-if="showCustomDateInput">
+                    <div class="custom-date-div" v-if="showCustomDateInput">
                         <div class="start-date-div">
-                        <h4 class = "h4">Start date</h4>
-                        <input class = "date-input-container" type="date" v-model="startDate" id="start-date" required />
+                            <h4 class="h4">Start date</h4>
+                            <input class="date-input-container" type="date" v-model="startDate" id="start-date" required />
                         </div>
 
                         <div class="end-date-div">
-                        <h4 class = "h4">End date</h4>
-                        <input class = "date-input-container" type="date" v-model="endDate" id="end-date" required />
+                            <h4 class="h4">End date</h4>
+                            <input class="date-input-container" type="date" v-model="endDate" id="end-date" required />
                         </div>
 
-                        <button class = "custom-date-button" @click.prevent="handleCustomDateSubmit">Submit</button>
+                        <button class="custom-date-button" @click.prevent="handleCustomDateSubmit">Submit</button>
 
                     </div>
                 </form>
             </div>
 
-            
+
         </div>
 
         <div>
-                <h4 class = "h4">Correlation Heat Map</h4>
-                <p class = "p2">In the heatmap below, lighter shades of purple represent more highly corelated assets whereas darker shades represent less correlation</p>
-            </div>   
+            <h4 class="h4">Correlation Heat Map</h4>
+            <p class="p2">In the heatmap below, lighter shades of purple represent more highly corelated assets whereas
+                darker shades represent less correlation</p>
+        </div>
 
         <div class="chart-container">
             <Heatmap :matrix-data="correlationMatrix" />
@@ -71,7 +72,7 @@ import { ref, onMounted, watch } from 'vue';
 import axios from 'axios';
 import Heatmap from '../components/HeatMap.vue';
 
-// Variables from TimeSeries.vue
+// Variables
 const setDateRange = ref('all');
 const showCustomDateInput = ref(false);
 
@@ -88,7 +89,7 @@ function handleCustomDateSubmit() {
     fetchData();
 }
 
-// Methods from TimeSeries.vue
+// Methods
 watch(setDateRange, (newValue) => {
     const tempDate = new Date(currentDate.value);
     switch (newValue) {
@@ -157,58 +158,58 @@ onMounted(fetchData);
 
 <style scoped>
 .p2 {
-  color: white;
-  max-width: 500px;
-  padding-left: 220px;  
+    color: white;
+    max-width: 500px;
+    padding-left: 220px;
 }
 
 .p {
-  color: white;
- 
+    color: white;
+
 }
 
 .h3 {
-  color: hsl(274, 92%, 75%);
-  padding-bottom: 0px;
+    color: hsl(274, 92%, 75%);
+    padding-bottom: 0px;
 }
 
 .h2 {
-  color: hsl(274, 92%, 75%);
-  padding-bottom: 0px;
+    color: hsl(274, 92%, 75%);
+    padding-bottom: 0px;
 }
 
 .date-panel {
-  flex: 1;
-  margin: 10px;
-  box-sizing: border-box;
-  background-color: #0f0f0f;
-  border-radius: 10px;
-  max-width: 500px;
-  padding-bottom: 20px;
+    flex: 1;
+    margin: 10px;
+    box-sizing: border-box;
+    background-color: #0f0f0f;
+    border-radius: 10px;
+    max-width: 500px;
+    padding-bottom: 20px;
 }
 
 .date-button-panel button.active {
-  background-color: #9746D6;
-  color: white;
+    background-color: #9746D6;
+    color: white;
 }
 
 .date-and-measure-container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  flex-wrap: wrap;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 200px;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 200px;
+    align-items: center;
 }
 
-.custom-date-div{
+.custom-date-div {
     padding-top: 10px;
     padding-bottom: 20px;
 }
 
-.custom-date-div{
+.custom-date-div {
     background-color: #000000;
     max-width: 200px;
     margin-left: 240px;
@@ -216,19 +217,19 @@ onMounted(fetchData);
     border-radius: 10px;
 }
 
-.start-date-div{
+.start-date-div {
     padding-bottom: 10px;
 }
 
-.end-date-div{
+.end-date-div {
     padding-bottom: 20px;
 }
 
-.date-input-container{
+.date-input-container {
     padding: 8px;
 }
 
-.h4{
+.h4 {
     color: #cb91f8;
     margin-bottom: 3px;
     margin-top: 10px;
@@ -238,5 +239,4 @@ onMounted(fetchData);
     background-color: #9746D6;
     color: white;
 }
-
 </style>

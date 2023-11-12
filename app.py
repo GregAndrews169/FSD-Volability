@@ -49,10 +49,8 @@ def get_crypto_data():
                            "coin_Dogecoin", 
                            "coin_Tron"], coin_crypto, start_period, end_period)
 
-        # Assuming "volatility_data.json" is correct and the file is in the correct path relative to the application
         return send_file('volatility_data.json', as_attachment=True, download_name='volatility_data.json')
     except Exception as e:
-        # Handle exception here
         return str(e), 500
     
 
@@ -80,10 +78,8 @@ def get_correlation_data():
 
         matrix_to_objects(cor)
 
-        # Assuming "volatility_data.json" is correct and the file is in the correct path relative to the application
         return send_file('matrix_objects.json', as_attachment=True, download_name='matrix_objects.json')
     except Exception as e:
-        # Handle exception here
         return str(e), 500
     
 @app.route('/api/profit_loss', methods=['POST'])
@@ -137,15 +133,9 @@ def get_profit_loss():
                            "coin_Dogecoin", 
                            "coin_Tron"], coin_crypto, start_period, end_period, purchase_period, quants)
 
-
-        # Assuming "volatility_data.json" is correct and the file is in the correct path relative to the application
         return send_file('pna_data.json', as_attachment=True, download_name='pna_data.json')
     except Exception as e:
-        # Handle exception here
         return str(e), 500
-
-
-
 
 if __name__ == "__main__":
     app.run(debug=True)
