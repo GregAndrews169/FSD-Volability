@@ -58,9 +58,9 @@ Follow these steps to set up your Python environment:
 
 With your environment set up and dependencies installed, start the local server by running:
 
-    ```
-    python app.py
-    ```
+```
+python app.py
+```
 
 Your server should now be running on `http://localhost:5000`.
 
@@ -82,22 +82,12 @@ Open a new terminal window to set up the frontend part of the project.
 
 The frontend should now be accessible at `http://localhost:5173`.
 
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
 ## Contact
 
-Adam Mosam - MSMADA002@myuct.ac.za
-Donel Chihoma - CHHDON001@myuct.ac.za
-Greg Andrews - ANDGRE007@myuct.ac.za
-Busisiwe Mtsweni - MTSBUS011@myuct.ac.za
+1. Adam Mosam - MSMADA002@myuct.ac.za
+2. Donel Chihoma - CHHDON001@myuct.ac.za
+3. Greg Andrews - ANDGRE007@myuct.ac.za
+4. Busisiwe Mtsweni - MTSBUS011@myuct.ac.za
 
 Project Link: [https://github.com/GregAndrews169/FSD-Volability]
 
